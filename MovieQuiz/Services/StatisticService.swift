@@ -16,30 +16,18 @@ final class StatisticService {
 
 extension StatisticService: StatisticServiceProtocol {
     private var correctAnswers: Int {
-        get {
-            storage.integer(forKey: Keys.correct.rawValue)
-        }
-        set {
-            storage.set(newValue, forKey: Keys.correct.rawValue)
-        }
+        get { storage.integer(forKey: Keys.correct.rawValue) }
+        set { storage.set(newValue, forKey: Keys.correct.rawValue) }
     }
     
     private var totalQuestions: Int {
-        get {
-            storage.integer(forKey: Keys.totalQuestions.rawValue)
-        }
-        set {
-            storage.set(newValue, forKey: Keys.totalQuestions.rawValue)
-        }
+        get { storage.integer(forKey: Keys.totalQuestions.rawValue) }
+        set { storage.set(newValue, forKey: Keys.totalQuestions.rawValue) }
     }
     
     var gamesCount: Int {
-        get {
-            storage.integer(forKey: Keys.gamesCount.rawValue)
-        }
-        set {
-            storage.set(newValue, forKey: Keys.gamesCount.rawValue)
-        }
+        get { storage.integer(forKey: Keys.gamesCount.rawValue) }
+        set { storage.set(newValue, forKey: Keys.gamesCount.rawValue) }
     }
     
     var bestGame: GameResult {
