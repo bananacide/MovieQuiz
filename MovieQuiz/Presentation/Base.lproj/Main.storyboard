@@ -37,7 +37,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Deadpool" translatesAutoresizingMaskIntoConstraints="NO" id="4AX-Ic-pLO" userLabel="Preview Image">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4AX-Ic-pLO" userLabel="Preview Image">
                                         <rect key="frame" x="0.0" y="43.333333333333314" width="374" height="561"/>
                                         <color key="backgroundColor" name="YP White"/>
                                         <constraints>
@@ -105,10 +105,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GQL-Dw-dMo">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
+                            <constraint firstItem="GQL-Dw-dMo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3nA-cR-Unv"/>
+                            <constraint firstItem="GQL-Dw-dMo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IKe-Ve-rek"/>
                             <constraint firstItem="Vlz-7Z-Qft" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="Y00-zL-lJp"/>
                             <constraint firstItem="Vlz-7Z-Qft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZQY-W1-7Sh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vlz-7Z-Qft" secondAttribute="bottom" id="ihi-BB-R1H"/>
@@ -116,6 +121,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="GQL-Dw-dMo" id="ug5-EC-yIj"/>
                         <outlet property="counterLabel" destination="SGs-V6-pid" id="BMJ-vj-4Bf"/>
                         <outlet property="imageView" destination="4AX-Ic-pLO" id="9Ts-q7-6Wh"/>
                         <outlet property="noButton" destination="48b-ef-cj0" id="8oC-6R-bCl"/>
@@ -129,7 +135,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Deadpool" width="2000" height="3000"/>
         <namedColor name="YP Black">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
