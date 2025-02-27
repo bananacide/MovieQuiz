@@ -22,6 +22,12 @@ struct MoviesLoader: MoviesLoading {
             case .success(let data):
                 do {
                     let mostPopularMovies = try JSONDecoder().decode(MostPopularMovies.self, from: data)
+                    
+                    if !mostPopularMovies.errorMessage.isEmpty {
+                        handler(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: mostPopularMovies.errorMessage])))
+                        return
+                    }
+                    
                     handler(.success(mostPopularMovies))
                 } catch {
                     handler(.failure(error))
@@ -32,5 +38,3 @@ struct MoviesLoader: MoviesLoading {
         }
     }
 }
-
-

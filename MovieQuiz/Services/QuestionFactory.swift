@@ -86,13 +86,14 @@ final class QuestionFactory: QuestionFactoryProtocol {
             do {
                 imageData = try Data(contentsOf: movie.resizedImageURL)
             } catch {
-                print("Failed to load image")
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.didFailToLoadData(with: error)
+                }
+                return
             }
             
             let rating = Float(movie.rating) ?? 0
-            
             let randomRating = Int([5, 6, 7, 8].randomElement() ?? 7)
-
             let isGreaterThan = Bool.random()
             let comparisonText = isGreaterThan ? "больше" : "меньше"
             let correctAnswer = isGreaterThan ? (Int(rating) > randomRating) : (Int(rating) < randomRating)
@@ -104,8 +105,7 @@ final class QuestionFactory: QuestionFactoryProtocol {
                                          correctAnswer: correctAnswer)
             
             DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.delegate?.didReceiveNextQuestion(question: question)
+                self?.delegate?.didReceiveNextQuestion(question: question)
             }
         }
     }
