@@ -7,7 +7,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var noButton: UIButton!
     @IBOutlet private weak var yesButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private var presenter: MovieQuizPresenter!
     private var alertPresenter: AlertPresenter?
@@ -23,7 +23,6 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
 
         activityIndicator.hidesWhenStopped = true
 
-//        presenter = MovieQuizPresenter(viewController: self)
         presenter = MovieQuizPresenter(viewController: self as MovieQuizViewControllerProtocol)
     }
     
